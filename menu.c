@@ -11,4 +11,5 @@ int menu()
         printf("Invalid input, please try again");
         goto input;
     }
+    return choice; //Remember to add this to log
 }
