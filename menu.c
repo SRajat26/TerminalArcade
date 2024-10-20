@@ -37,7 +37,7 @@ int guessTheCard()
     printf("Please enter your gues in the form of alphabets only.\n");
     printf("For example, to guess King, Queen and Joker, write KQJ\n");
     char cards[4]= "KQJ";
-    int attempts=0, i;
+    int attempts=1, i;
     srand(time(NULL));   // Initialization, should only be called once.
     for(int i=0; i<5; i++)
     {
@@ -47,9 +47,16 @@ int guessTheCard()
         cards[index_1]= cards[index_2];
         cards[index_2]= temp;
     }
+    printf("%s\n\n",cards);
     char guess[4];
     retry:
+    if(attempts>3)
+        {
+            printf("3 wrong guesses! Game Over\n");
+            goto end_cards;
+        }
     printf("Please enter your guessed order: \t");
+    fflush(stdin); 
     scanf("%s",&guess);
     if(strlen(guess)>3 && ++attempts>3)
     {
@@ -79,23 +86,19 @@ int guessTheCard()
     {
         char guess_ch= guess[i];
         char cards_ch= cards[i];
-        if(guess_ch != cards_ch && attempts<=3)
+        if(guess_ch != cards_ch)
         {
         printf("You guessed wrong! Want to retry? Press 1 for yes and any other character for No\n");
         attempts++;
-        char rtry;
+        char rtry='0';
         fflush(stdin); 
-        scanf("%c",rtry);
+        scanf("%c",&rtry);
         if(rtry!='1')
         goto end_cards;
         else 
         goto retry;
         }
-        if(attempts>3)
-        {
-            printf("3 wrong guesses! Game Over\n");
-            goto end_cards;
-        }
+        
     }
     if(i==4)
     printf("CONGRATS! You guess right in %d attempts.\n",attempts);
