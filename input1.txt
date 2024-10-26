@@ -1,0 +1,17 @@
+Proper Noun (Person Name) 
+Noun
+Adjective (Feeling)
+Verb
+Adjective (Feeling)
+Animal
+Verb
+Color
+Verb (ending in ing)
+Adverb (ending in ly)
+Number
+Measure of Time
+Color
+Animal
+Number
+Silly Word
+Noun
