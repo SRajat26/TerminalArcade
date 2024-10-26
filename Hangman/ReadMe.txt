@@ -1,0 +1,1 @@
+This folder is for Hangman. All related content will be posted here.
