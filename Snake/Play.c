@@ -19,6 +19,30 @@ int yFruit;
 
 int CoordFlag=1;
 
+void spawnFruit();
+void draw();
+void setup();
+int move();
+void logic();
+
+int main()
+{
+    printf("\nChoose Level");
+    int level;
+    printf("\n1: Easy");
+    printf("\n2: Medium");
+    printf("\n3: Hard\n");
+    scanf("%d", &level);
+    setup();
+    while(gameOver==0)
+    {
+        draw();
+        move();
+        logic();
+        Sleep(1000/level);
+    }
+    printf("\n\nGAME OVER! You got %d points", snakeLen*level);
+}
 void spawnFruit()
 {
     srand(time(NULL));
@@ -152,23 +176,4 @@ void logic()
     {
         gameOver=1;
     }
-}
-
-int main()
-{
-    printf("\nChoose Level");
-    int level;
-    printf("\n1: Easy");
-    printf("\n2: Medium");
-    printf("\n3: Hard\n");
-    scanf("%d", &level);
-    setup();
-    while(gameOver==0)
-    {
-        draw();
-        move();
-        logic();
-        Sleep(1000/level);
-    }
-    printf("\n\nGAME OVER! You got %d points", snakeLen*level);
 }
