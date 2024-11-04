@@ -156,13 +156,19 @@ void logic()
 
 int main()
 {
+    printf("\nChoose Level");
+    int level;
+    printf("\n1: Easy");
+    printf("\n2: Medium");
+    printf("\n3: Hard\n");
+    scanf("%d", &level);
     setup();
     while(gameOver==0)
     {
         draw();
         move();
         logic();
-        Sleep(1000);
+        Sleep(1000/level);
     }
-    printf("\n\nGAME OVER! You got %d points", snakeLen);
+    printf("\n\nGAME OVER! You got %d points", snakeLen*level);
 }
