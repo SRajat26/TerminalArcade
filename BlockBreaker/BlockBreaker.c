@@ -5,7 +5,8 @@ int topWall= 0;
 int bottomWall = 25;
 int leftWall = 0;
 int rightWall = 50;
-int block[5][50];
+int xblock[100];
+int yblock[100];
 
 void print();
 
@@ -16,6 +17,7 @@ int main()
 
 void print()
 {
+    int k=1;
      for(int i=0; i<25; i++)
        {
         //top and bottom walls
@@ -28,7 +30,15 @@ void print()
         for(int j=0;j<50; j++)  //left and right walls
         {
             if(j==0 || j==49)
-                printf("*");
+                printf("* ");
+            else if(i<5 && j%2!=0)
+            {
+                    printf("#");
+                    xblock[k]= j;
+                    yblock[k]=i;
+                    k++;
+            }
+
             else
                 printf(" ");
         }
