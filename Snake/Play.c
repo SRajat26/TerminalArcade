@@ -41,7 +41,7 @@ int main()
         logic();
         Sleep(1000/level);
     }
-    printf("\n\nGAME OVER! You got %d points", snakeLen*level);
+    printf("\n\nGAME OVER! You got %d points", (snakeLen-3)*level);
 }
 void spawnFruit()
 {
@@ -60,7 +60,7 @@ void draw()
     {
         if(y==0 || y==24)
         {
-            for(int j=0;j<25; j++) 
+            for(int j=0;j<25; j++)
             printf("# ");
         }
         else
@@ -116,13 +116,13 @@ int move()
          case 'w':
              CoordFlag = 1;
              break;
-            case 'a':
+        case 'a':
              CoordFlag = 2;
              break;
           case 's':
               CoordFlag = 3;
              break;
-         case 'd': 
+         case 'd':
              CoordFlag = 4;
                 break;
          case 'q':
@@ -138,17 +138,25 @@ void logic()
     int yPrevPt= yHead;
     switch(CoordFlag)
     {
-        case 1: 
+        case 1:
             yHead--;
+            if(yHead==0)
+            gameOver=1;
             break;
         case 2:
             xHead--;
+            if(xHead==0)
+            gameOver=1;
             break;
-        case 3: 
+        case 3:
             yHead++;
+            if(yHead==24)
+            gameOver=1;
             break;
-        case 4: 
+        case 4:
             xHead++;
+            if(xHead==49)
+            gameOver=1;
             break;
         case 5:
             gameOver=1;
