@@ -1,46 +1,37 @@
-#include <stdio.h>
-#include <windows.h>
+#include<stdio.h>
 
-int topWall= 0;
-int bottomWall = 25;
-int leftWall = 0;
-int rightWall = 50;
-int xblock[100];
-int yblock[100];
-
-void print();
-
-int main()
+// int xBlock[25], yBlock[25], paddle[8]={2,3,4,5,6,7,8};
+// int xBall=4, yBall=50;
+// void setup()
+// {
+//  //put values in xBlock and yBock to store initial positions of blocks
+// }
+void main()
 {
-    print();
-}
-
-void print()
-{
-    int k=1;
-     for(int i=0; i<25; i++)
-       {
-        //top and bottom walls
-            if(i==0 || i==24)
-            {
-                for(int j=0;j<25; j++) 
-                printf("* ");
-            }
-        else
-        for(int j=0;j<50; j++)  //left and right walls
+    for(int y=20; y>=0;y--)
+    {
+        for(int x=0; x<=75; x++)
         {
-            if(j==0 || j==49)
-                printf("* ");
-            else if(i<5 && j%2!=0)
-            {
-                    printf("#");
-                    xblock[k]= j;
-                    yblock[k]=i;
-                    k++;
+            if(y==20 || y==0)
+            {for(int a=0; a<=37; a++)
+            printf("* ");
+            break;
             }
-
+            else if(x==0 || x==75){
+            printf("*");
+            }
             else
-                printf(" ");
+            printf(" ");
+            // for(int k=0; k<25; k++)
+            // {
+            //     if(xBlock[k]==x && yBlock[k]==y)
+            //     {
+            //         printf("# ");
+            //         x++;
+            //         break;
+            //     }
+
+            // }
         }
         printf("\n");
     }
