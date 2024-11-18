@@ -6,10 +6,16 @@ int main() {
     srand(time(NULL));
     int uchoice; 
     int a = rand();
+    int cchoice=a%3+1;
+
+    retry:
     printf("WELCOME TO ROCK PAPER SCISSORS\n");
     printf("Please choose: \n Rock:1\n Paper:2\n Scissor:3\n ");
     scanf("%d",&uchoice);
-    int cchoice=a%3+1;
+    if(uchoice<=0 || uchoice>3){
+        printf("You entered an invalid input\n");
+        goto retry;
+    } 
     if (cchoice==uchoice)
     {
         printf("\n\nDraw\n");
